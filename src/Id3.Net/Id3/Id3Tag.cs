@@ -372,6 +372,12 @@ namespace Id3
             set => SetSingleFrame(value);
         }
 
+        public MoodsFrame Moods
+        {
+            get => GetSingleFrame<MoodsFrame>();
+            set => SetSingleFrame(value);
+        }
+
         public LyricsFrameList Lyrics => GetMultipleFrames<LyricsFrame, LyricsFrameList>();
 
         public PaymentUrlFrame PaymentUrl

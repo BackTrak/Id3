@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <RootNamespace>Id3.Files</RootNamespace>
     <PackageId>ID3.Files</PackageId>
     <Version>0.5.0-beta.1</Version>
@@ -55,7 +55,6 @@ This package provides utilities for file handling.</Description>
 
   <ItemGroup>
     <ProjectReference Include="..\Id3.Net.InfoFx\Id3.Net.InfoFx.csproj" />
-    <ProjectReference Include="..\Id3.Net\Id3.Net.csproj" />
   </ItemGroup>
 
   <ItemGroup>

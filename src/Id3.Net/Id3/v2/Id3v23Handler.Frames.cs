@@ -24,9 +24,9 @@ using Id3.Frames;
 
 namespace Id3.v2
 {
-    internal sealed partial class Id3V23Handler
+    internal partial class Id3V23Handler
     {
-        private static TFrame DecodeText<TFrame>(byte[] data)
+        protected static TFrame DecodeText<TFrame>(byte[] data)
             where TFrame : TextFrameBase, new()
         {
             var frame = new TFrame();
@@ -53,7 +53,7 @@ namespace Id3.v2
             return frame;
         }
 
-        private static byte[] EncodeText<TFrame>(Id3Frame id3Frame)
+        protected static byte[] EncodeText<TFrame>(Id3Frame id3Frame)
             where TFrame : TextFrameBase
         {
             var frame = (TFrame) id3Frame;
@@ -67,7 +67,7 @@ namespace Id3.v2
             return data;
         }
 
-        private static TFrame DecodeUrlLink<TFrame>(byte[] data)
+        protected static TFrame DecodeUrlLink<TFrame>(byte[] data)
             where TFrame : UrlLinkFrame, new()
         {
             var frame = new TFrame {Url = TextEncodingHelper.GetDefaultString(data, 0, data.Length)};

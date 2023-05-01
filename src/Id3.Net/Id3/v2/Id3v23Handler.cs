@@ -25,7 +25,7 @@ using Id3.Frames;
 
 namespace Id3.v2
 {
-    internal sealed partial class Id3V23Handler : Id3V2Handler
+    internal partial class Id3V23Handler : Id3V2Handler
     {
         internal override void DeleteTag(Stream stream)
         {
@@ -76,7 +76,7 @@ namespace Id3.v2
             stream.Read(headerBytes, 0, 5);
 
             string magic = Encoding.ASCII.GetString(headerBytes, 0, 3);
-            return magic == "ID3" && headerBytes[3] == 3;
+            return magic == "ID3" && headerBytes[3] == (byte) Version;
         }
 
         internal override Id3Tag ReadTag(Stream stream, out object additionalData)
@@ -141,6 +141,12 @@ namespace Id3.v2
                 currentPos += 2;
 
                 var frameData = new byte[frameSize];
+
+                // Fix for tagData array being smaller than frameSize in some cases, causing a crash. 
+                //int copySize = frameSize;
+                //if(copySize > tagData.Length - currentPos) 
+                //    copySize = tagData.Length - currentPos;
+
                 Array.Copy(tagData, currentPos, frameData, 0, frameSize);
 
                 FrameHandler mapping = FrameHandlers[frameId];
@@ -259,7 +265,7 @@ namespace Id3.v2
         {
             var bytes = new List<byte>();
             bytes.AddRange(Encoding.ASCII.GetBytes("ID3"));
-            bytes.AddRange(new byte[] { 3, 0, 0 });
+            bytes.AddRange(new byte[] { (byte) Version, 0, 0 });
             foreach (Id3Frame frame in tag)
             {
                 if (!frame.IsAssigned)

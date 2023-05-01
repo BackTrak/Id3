@@ -1,4 +1,4 @@
-﻿#region --- License & Copyright Notice ---
+#region --- License & Copyright Notice ---
 /*
 Copyright (c) 2005-2019 Jeevan James
 All rights reserved.
@@ -17,12 +17,9 @@ limitations under the License.
 */
 #endregion
 
-namespace Id3
+namespace Id3.Frames
 {
-    public enum Id3Version : byte
+    public sealed class MoodsFrame : ListTextFrame
     {
-        V1X = 1,
-        V23 = 3,
-        V24 = 4
     }
 }

@@ -74,7 +74,8 @@ namespace Id3.Serialization
             selector.AddFrameSurrogates<TextFrameSurrogate>(
                 typeof(ArtistsFrame),
                 typeof(ComposersFrame),
-                typeof(LyricistsFrame)
+                typeof(LyricistsFrame),
+                typeof(MoodsFrame)
             );
 
             //Other TextFrameBase<>-derived classes
