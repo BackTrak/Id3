@@ -13,12 +13,12 @@ This package provides utilities for file handling.</Description>
     <Copyright>Copyright (c) Jeevan James 2005-2018</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/JeevanJames/Id3</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/JeevanJames/Id3/raw/master/icon.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/JeevanJames/Id3.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>FileNamer FileInfoProvider ID3 ID3.NET Lyrics3 MP3 ID3v1 ID3v1.0 ID3v1.1 ID3v2.3 Tag Tags Tagging Audio</PackageTags>
     <PackageReleaseNotes>Migrated to netstandard20 and .NET 4.x frameworks</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
@@ -52,6 +52,13 @@ This package provides utilities for file handling.</Description>
     <WarningsAsErrors />
     <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Id3.Net.InfoFx\Id3.Net.InfoFx.csproj" />
